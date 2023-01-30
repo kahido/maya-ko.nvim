@@ -126,17 +126,17 @@ hl.syntax = {
   Identifier = { fg = colors.fg_light, fmt = options.styles.variables },
   Constant = { fg = colors.yellow },
   PreProc = { fg = colors.red },
-  -- PreCondit = { fg = colors.blue },
+  PreCondit = { fg = colors.red },
   Include = { fg = colors.red },
   Keyword = { fg = colors.blue, fmt = options.styles.keywords },
-  -- Define = { fg = colors.red },
+  Define = { fg = colors.red },
   -- Typedef = { fg = colors.blue },
   Exception = { fg = colors.red },
   Conditional = { fg = colors.gold, fmt = options.styles.keywords },
   Repeat = { fg = colors.gold, fmt = options.styles.keywords },
-  -- Statement = { fg = colors.gold },
+  Statement = { fg = colors.gold, fmt = options.styles.keywords },
   Macro = { fg = colors.red },
-  Error = { fg = colors.bg, bg = colors.red_light },
+  Error = { fg = colors.error },
   Label = { fg = colors.red },
   -- Special = { fg = colors.green },
   -- SpecialChar = { fg = colors.red_light },
@@ -146,8 +146,8 @@ hl.syntax = {
   -- Tag = { fg = colors.blue },
   -- Delimiter = { fg = colors.red_light },
   Comment = { fg = colors.gray, fmt = options.styles.comments },
-  -- SpecialComment = { fg = colors.gray, fmt = options.styles.comments },
-  -- Todo = { fg = colors.blue, bg = colors.bg_light, fmt = options.styles.comments }
+  SpecialComment = { fg = colors.gray, fmt = options.styles.comments },
+  Todo = { fg = colors.blue, bg = colors.bg_light, fmt = options.styles.comments }
 }
 
 if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
@@ -174,6 +174,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     -- ["@keyword.function"] = hl.syntax.Keyword,
     -- ["@keyword.operator"] = hl.syntax.Keyword,
     ["@keyword.return"] = effect.keyword_return,
+    ["@define"] = hl.syntax.Define,
     -- ["@label"] = hl.syntax.Label,
     ["@method"] = hl.syntax.Function,
     ["@namespace"] = effect.namespace,

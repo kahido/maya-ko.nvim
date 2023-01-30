@@ -21,7 +21,7 @@ local colors = {
   purple = "#b988b0",
 }
 
-colors.error = colors.red
+colors.error = colors.red_dark
 colors.warn = colors.sand
 colors.info = colors.green
 colors.hint = colors.purple
