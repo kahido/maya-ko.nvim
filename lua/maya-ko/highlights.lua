@@ -144,7 +144,7 @@ hl.syntax = {
   Operator = { fg = colors.fg_light, fmt = options.styles.variables },
   -- Title = { fg = colors.green_light },
   -- Tag = { fg = colors.blue },
-  Delimiter = { fg = colors.red },
+  Delimiter = { fg = colors.blue },
   Comment = { fg = colors.gray, fmt = options.styles.comments },
   SpecialComment = { fg = colors.gray, fmt = options.styles.comments },
   Todo = { fg = colors.blue, bg = colors.bg_light, fmt = options.styles.comments }
@@ -184,7 +184,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@parameter"] = hl.syntax.Operator,
     -- ["@parameter.reference"] = hl.syntax.Operator,
     -- ["@property"] = hl.syntax.Operator,
-    -- ["@punctuation.delimiter"] = hl.syntax.Delimiter,
+    ["@punctuation.delimiter"] = effect.punctuation,
     ["@punctuation.bracket"] = effect.punctuation,
     ["@punctuation.special"] = effect.punctuation,
     ["@repeat"] = hl.syntax.Repeat,
@@ -247,7 +247,7 @@ else
     TSParameter = hl.syntax.Operator,
     -- TSParameterReference = TODO
     -- TSProperty = TODO
-    -- TSPunctDelimiter = TODO
+    TSPunctDelimiter = effect.punctuation,
     TSPunctBracket = effect.punctuation,
     TSPunctSpecial = effect.punctuation,
     TSRepeat = hl.syntax.Repeat,
