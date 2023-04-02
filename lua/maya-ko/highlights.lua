@@ -16,10 +16,10 @@ hl.common = {
   Terminal = { fg = colors.fg, bg = options.transparent and 'none' or colors.bg },
   EndOfBuffer = { fg = colors.bg, bg = options.transparent and 'none' or colors.bg },
   FoldColumn = { fg = colors.fg, bg = options.transparent and 'none' or colors.bg_light },
-  Folded =  {fg = colors.fg, bg = options.transparent and 'none' or colors.bg_light },
+  Folded = { fg = colors.fg, bg = options.transparent and 'none' or colors.bg_light },
   SignColumn = { fg = colors.fg, bg = options.transparent and 'none' or colors.bg },
   ToolbarLine = { fg = colors.fg },
-  Cursor =  {fmt = "reverse" },
+  Cursor = { fmt = "reverse" },
   vCursor = { fmt = "reverse" },
   iCursor = { fmt = "reverse" },
   lCursor = { fmt = "reverse" },
@@ -65,7 +65,7 @@ hl.common = {
   StatusLineTermNC = { fg = colors.fg_dark, bg = colors.bg_light },
   TabLine = { fg = colors.gray, bg = colors.bg_light },
   TabLineFill = { fg = colors.gray, bg = colors.bg_light },
-  TabLineSel =  { fg = colors.blue_light, bg = colors.bg_light },
+  TabLineSel = { fg = colors.blue_light, bg = colors.bg_light },
   VertSplit = { fg = colors.fg, bg = colors.bg },
   Visual = { bg = colors.selection },
   VisualNOS = { fg = colors.blue_light, bg = colors.selection, fmt = "underline" },
@@ -152,16 +152,18 @@ hl.syntax = {
 
 if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
   hl.treesitter = {
-    -- ["@annotation"] = hl.common.Normal,
     ["@attribute"] = hl.syntax.Label,
     ["@boolean"] = hl.syntax.Boolean,
     ["@character"] = hl.syntax.Character,
+    -- ["@character.special"] = hl.syntax.Character,
     ["@comment"] = hl.syntax.Comment,
     ["@conditional"] = hl.syntax.Conditional,
     ["@constant"] = hl.syntax.Constant,
     ["@constant.builtin"] = hl.syntax.Constant,
     ["@constant.macro"] = hl.syntax.Macro,
     ["@constructor"] = hl.syntax.Function,
+    -- ["@debug"] = TODO
+    ["@define"] = hl.syntax.Define,
     ["@error"] = hl.syntax.Error,
     ["@exception"] = hl.syntax.Exception,
     ["@field"] = { fg = colors.pink },
@@ -171,19 +173,17 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@function.macro"] = hl.syntax.Macro,
     ["@include"] = hl.syntax.Include,
     ["@keyword"] = hl.syntax.Keyword,
-    -- ["@keyword.function"] = hl.syntax.Keyword,
-    -- ["@keyword.operator"] = hl.syntax.Keyword,
     ["@keyword.return"] = effect.keyword_return,
-    ["@define"] = hl.syntax.Define,
     -- ["@label"] = hl.syntax.Label,
+    ["@macro"] = hl.syntax.Macro,
     ["@method"] = hl.syntax.Function,
     ["@namespace"] = effect.namespace,
-    -- ["@none"] = hl.common.Normal,
     ["@number"] = hl.syntax.Number,
     ["@operator"] = hl.syntax.Operator,
     ["@parameter"] = hl.syntax.Operator,
-    -- ["@parameter.reference"] = hl.syntax.Operator,
+    -- ["@preproc"] = hl.syntax.PreProc,
     -- ["@property"] = hl.syntax.Operator,
+    ["@punctuation"] = effect.punctuation,
     ["@punctuation.delimiter"] = effect.punctuation,
     ["@punctuation.bracket"] = effect.punctuation,
     ["@punctuation.special"] = effect.punctuation,
@@ -191,29 +191,22 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@string"] = hl.syntax.String,
     ["@string.regex"] = effect.string_escape,
     ["@string.escape"] = effect.string_escape,
-    -- ["@symbol"] = hl.syntax.String,
+    -- ["@string.special"] = effect.string_escape,
+    -- ["@structure"] = TODO
+    -- ["@storageclass"] = hl.syntax.StorageClass,
     -- ["@tag"] = hl.syntax.Tag,
-    -- ["@tag.delimiter"] = hl.syntax.Delimiter,
-    -- ["@text"] = hl.common.Normal,
-    -- ["@text.strong"] = {fg = c.fg, fmt = 'bold'},
-    -- ["@text.emphasis"] = {fg = c.fg, fmt = 'italic'},
-    -- ["@text.underline"] = {fg = c.fg, fmt = 'underline'},
-    -- ["@text.strike"] = {fg = c.fg, fmt = 'strikethrough'},
-    -- ["@text.title"] = {fg = c.orange, fmt = 'bold'},
+    -- ["@text"] = TODO
+    -- ["@text.underline"] = TODO
+    -- ["@text.title"] = TODO
     -- ["@text.literal"] = TODO
     -- ["@text.uri"] = TODO
-    -- ["@text.math"] = TODO
     -- ["@text.reference"] = TODO
-    -- ["@text.enviroment"] = TODO
-    -- ["@text.enviroment.name"] = TODO
-    -- ["@note"] = hl.common.Normal,
-    -- ["@warning"] = hl.common.Normal,
-    -- ["@danger"] = hl.common.Normal,
+    ["@text.todo"] = hl.syntax.Todo,
     -- ["@type"] = hl.syntax.Type,
     ["@type.builtin"] = { fg = colors.pink },
     ["@type.qualifier"] = { fg = colors.gold },
+    ["@type.definition"] = { fg = colors.pink },
     -- ["@variable"] = hl.syntax.Character,
-    -- ["@variable.builtin"] = hl.syntax.Character,
   }
 else
   hl.treesitter = {
@@ -326,11 +319,9 @@ hl.plugins.lsp = {
   LspReferenceRead = { fmt = "underline", sp = colors.yellow },
   -- used for highlighting "write" references
   LspReferenceWrite = { fmt = "underline", sp = colors.yellow },
-
   LspSignatureActiveParameter = { fg = "none", bg = colors.highlight_dark, fmt = "bold" },
   LspCodeLens = { fg = colors.light_gray },
   LspCodeLensSeparator = { fg = colors.gray },
-
   LspCxxHlGroupEnumConstant = colors.orange,
   LspCxxHlGroupMemberVariable = colors.orange,
   LspCxxHlGroupNamespace = colors.blue,
@@ -423,7 +414,7 @@ hl.plugins.telescope = {
   TelescopePreviewBorder = { fg = colors.blue_light },
   TelescopeMatching = { fg = colors.gold, fmt = "bold" },
   TelescopePromptPrefix = { fg = colors.green },
-  TelescopeSelection =  { fg = colors.blue, bg = colors.selection },
+  TelescopeSelection = { fg = colors.blue, bg = colors.selection },
   TelescopeSelectionCaret = { fg = colors.blue }
 }
 
