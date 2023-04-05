@@ -122,7 +122,7 @@ hl.syntax = {
   Boolean = { fg = colors.green_light },
   -- Type = { fg = colors.blue },
   -- Structure = { fg = colors.red },
-  -- StorageClass = { fg = colors.blue },
+  StorageClass = { fg = colors.gold },
   Identifier = { fg = colors.fg_light, fmt = options.styles.variables },
   Constant = { fg = colors.yellow },
   PreProc = { fg = colors.red },
@@ -193,7 +193,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@string.escape"] = effect.string_escape,
     -- ["@string.special"] = effect.string_escape,
     -- ["@structure"] = TODO
-    -- ["@storageclass"] = hl.syntax.StorageClass,
+    ["@storageclass"] = hl.syntax.StorageClass,
     -- ["@tag"] = hl.syntax.Tag,
     -- ["@text"] = TODO
     -- ["@text.underline"] = TODO
