@@ -7,6 +7,10 @@ local effect = {
   keyword_return = { fg = colors.gold },
   string_escape = { fg = colors.gold, fmt = options.styles.strings },
   clean = { fg = colors.fg, bg = options.transparent and 'none' or colors.bg, fmt = 'none' },
+  todo = { fg = colors.fg_light, bg = colors.blue, fmt = options.styles.comments },
+  danger = { fg = colors.fg_light, bg = colors.red_dark, fmt = options.styles.comments },
+  note = { fg = colors.bg, bg = colors.green_light, fmt = options.styles.comments },
+  warning = { fg = colors.bg, bg = colors.orange, fmt = options.styles.comments }
 }
 
 local hl = { langs = {}, plugins = {} }
@@ -201,7 +205,10 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     -- ["@text.literal"] = TODO
     -- ["@text.uri"] = TODO
     -- ["@text.reference"] = TODO
-    ["@text.todo"] = hl.syntax.Todo,
+    ["@text.todo"] = effect.todo,
+    ["@text.danger"] = effect.danger,
+    ["@text.note"] = effect.note,
+    ["@text.warning"] = effect.warning,
     -- ["@type"] = hl.syntax.Type,
     ["@type.builtin"] = { fg = colors.pink },
     ["@type.qualifier"] = { fg = colors.gold },
@@ -255,7 +262,7 @@ else
     -- TSEmphasis = {fg = c.fg, fmt = 'italic'},
     -- TSUnderline = {fg = c.fg, fmt = 'underline'},
     -- TSStrike = {fg = c.fg, fmt = 'strikethrough'},
-    -- TSTitle = {fg = c.orange, fmt = 'bold'},
+    -- TSTitle = {fg = c.orange_light, fmt = 'bold'},
     -- TSLiteral = TODO
     -- TSURI = {fg = c.cyan, fmt = 'underline'},
     -- TSMath = TODO
@@ -322,8 +329,8 @@ hl.plugins.lsp = {
   LspSignatureActiveParameter = { fg = "none", bg = colors.highlight_dark, fmt = "bold" },
   LspCodeLens = { fg = colors.light_gray },
   LspCodeLensSeparator = { fg = colors.gray },
-  LspCxxHlGroupEnumConstant = colors.orange,
-  LspCxxHlGroupMemberVariable = colors.orange,
+  LspCxxHlGroupEnumConstant = colors.orange_light,
+  LspCxxHlGroupMemberVariable = colors.orange_light,
   LspCxxHlGroupNamespace = colors.blue,
   LspCxxHlSkippedRegion = colors.gray,
   LspCxxHlSkippedRegionBeginEnd = colors.red,
@@ -363,7 +370,7 @@ hl.plugins.cmp = {
   CmpItemAbbrMatch = { fg = colors.blue, fmt = "bold" },
   CmpItemAbbrMatchFuzzy = { fg = colors.blue, underline = true },
   CmpItemMenu = { fg = colors.gray_light },
-  CmpItemKindText = { fg = colors.orange },
+  CmpItemKindText = { fg = colors.orange_light },
   CmpItemKindMethod = { fg = colors.blue },
   CmpItemKindFunction = { fg = colors.blue },
   CmpItemKindConstructor = { fg = colors.yellow },
@@ -372,13 +379,13 @@ hl.plugins.cmp = {
   CmpItemKindInterface = { fg = colors.yellow },
   CmpItemKindModule = { fg = colors.blue },
   CmpItemKindProperty = { fg = colors.blue },
-  CmpItemKindValue = { fg = colors.orange },
+  CmpItemKindValue = { fg = colors.orange_light },
   CmpItemKindEnum = { fg = colors.yellow },
   CmpItemKindKeyword = { fg = colors.purple },
   CmpItemKindSnippet = { fg = colors.green },
   CmpItemKindFile = { fg = colors.blue },
   CmpItemKindEnumMember = { fg = colors.cyan },
-  CmpItemKindConstant = { fg = colors.orange },
+  CmpItemKindConstant = { fg = colors.orange_light },
   CmpItemKindStruct = { fg = colors.yellow },
   CmpItemKindTypeParameter = { fg = colors.yellow },
 }
@@ -388,7 +395,7 @@ hl.plugins.diff = {
   diffRemoved = { fg = colors.diff_remove },
   diffChanged = { fg = colors.diff_change },
   diffOldFile = { fg = colors.yellow },
-  diffNewFile = { fg = colors.orange },
+  diffNewFile = { fg = colors.orange_light },
   diffFile = { fg = colors.blue },
   diffLine = { fg = colors.gray_light },
   diffIndexLine = { fg = colors.purple },
