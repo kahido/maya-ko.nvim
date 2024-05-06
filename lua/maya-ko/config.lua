@@ -3,7 +3,7 @@ local config = {}
 -- default options
 config.options = {
   -- Main options --
-  transparent = true, -- don't set backgroud
+  transparent = false, -- don't set backgroud
 
   -- Changing Formats --
   styles = {

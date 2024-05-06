@@ -179,6 +179,8 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@keyword"] = hl.syntax.Keyword,
     ["@keyword.return"] = effect.keyword_return,
     ["@keyword.import"] = hl.syntax.Include,
+    ["@keyword.modifier"] = { fg = colors.gold },
+    ["@keyword.conditional"] = hl.syntax.Conditional,
     -- ["@label"] = hl.syntax.Label,
     ["@macro"] = hl.syntax.Macro,
     ["@method"] = hl.syntax.Function,
