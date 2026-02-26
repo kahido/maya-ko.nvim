@@ -6,8 +6,6 @@
 local maya_ko = {}
 
 function maya_ko.setup(options)
-  -- print('DEBUG: In function setup() lua/maya_ko/init')
-
   local config = require("maya-ko.config")
   config.set_options(options)
 

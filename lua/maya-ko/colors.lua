@@ -1,5 +1,5 @@
 local colors = {
-  bg = '#2b3339', -- Default Background
+  bg = '#282a2e', -- Default Background
   bg_light = '#31353f', -- Lighter Background (Used for status bars, line number and folding marks)
   fg = '#abb2bf', -- Default Foreground, Caret, Delimiters, Operators
   fg_light = '#e9e8d2', -- Light Foreground

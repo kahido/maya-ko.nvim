@@ -4,6 +4,5 @@ for k in pairs(package.loaded) do
   end
 end
 
--- print("DEBUG: In colors/maya-ko.lua")
 local maya_ko = require('maya-ko')
 maya_ko.setup()

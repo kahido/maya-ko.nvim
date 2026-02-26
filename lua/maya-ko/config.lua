@@ -28,7 +28,6 @@ config.options = {
 }
 
 function config.set_options(opts)
-  -- print('DEBUG: In function set_options() lua/maya_ko/config')
   config.options = vim.tbl_deep_extend("force", config.options, opts or {})
 end
 
