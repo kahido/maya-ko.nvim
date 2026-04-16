@@ -27,13 +27,17 @@ colors.warn = colors.sand
 colors.info = colors.green
 colors.hint = colors.purple
 
-colors.diff_add = colors.green
+-- Mine!
 colors.diff_add_bg = "#394e3d"
-colors.diff_change = colors.blue
+colors.diff_delete_bg = "#4d2b2e"
 colors.diff_change_bg = "#39495d"
-colors.diff_remove = colors.red
-colors.diff_remove_bg = "#4d2b2e"
 colors.diff_text_bg = "#405d7e"
+
+-- From `tokyonight`
+-- colors.diff_add_bg = "#20303b"
+-- colors.diff_delete_bg = "#37222c"
+-- colors.diff_change_bg = "#1f2231"
+-- colors.diff_text_bg = "#394b70"
 
 colors.active = "#353b49"
 colors.float = "#3b4252"

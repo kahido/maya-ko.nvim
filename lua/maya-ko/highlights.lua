@@ -34,14 +34,14 @@ hl.common = {
   CursorLineNr = { fg = colors.fg },
   LineNr = { fg = colors.fg_dark },
   Conceal = { fg = colors.green_light, bg = colors.bg },
-  DiffAdd = { fg = colors.blue_light, bg = colors.bg },
-  DiffChange = { fg = colors.gray, bg = colors.bg },
-  DiffDelete = { fg = colors.gold, bg = colors.bg },
-  DiffText = { fg = colors.green_light, bg = colors.bg },
-  DiffAdded = { fg = colors.blue_light, bg = colors.bg },
-  DiffRemoved = { fg = colors.gold, bg = colors.bg },
-  DiffFile = { fg = colors.gold, bg = colors.bg },
-  DiffIndexLine = { fg = colors.green_light, bg = colors.bg },
+  DiffAdd = { bg = colors.diff_add_bg },
+  DiffDelete = { fg = colors.gray, bg = colors.diff_delete_bg },
+  DiffChange = { bg = colors.diff_change_bg },
+  DiffText = { bg = colors.diff_text_bg },
+  -- DiffAdded = { fg = colors.yellow, bg = colors.bg },
+  -- DiffRemoved = { fg = colors.gold, bg = colors.bg },
+  -- DiffFile = { fg = colors.gold, bg = colors.bg },
+  -- DiffIndexLine = { fg = colors.green_light, bg = colors.bg },
   Directory = { fg = colors.green_light },
   ErrorMsg = { fg = colors.gold, fmt = "bold" },
   WarningMsg = { fg = colors.gold, fmt = "bold" },
@@ -394,28 +394,28 @@ hl.plugins.cmp = {
   CmpItemKindTypeParameter = { fg = colors.yellow },
 }
 
-hl.plugins.diff = {
-  diffAdded = { fg = colors.diff_add },
-  diffRemoved = { fg = colors.diff_remove },
-  diffChanged = { fg = colors.diff_change },
-  diffOldFile = { fg = colors.yellow },
-  diffNewFile = { fg = colors.orange_light },
-  diffFile = { fg = colors.blue },
-  diffLine = { fg = colors.gray_light },
-  diffIndexLine = { fg = colors.purple },
-}
+-- hl.plugins.diff = {
+--   diffAdded = { fg = colors.diff_add },
+--   diffRemoved = { fg = colors.diff_remove },
+--   diffChanged = { fg = colors.diff_change },
+--   diffOldFile = { fg = colors.yellow },
+--   diffNewFile = { fg = colors.orange_light },
+--   diffFile = { fg = colors.blue },
+--   diffLine = { fg = colors.gray_light },
+--   diffIndexLine = { fg = colors.purple },
+-- }
 
-hl.plugins.gitsigns = {
-  GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-  GitSignsAddNr = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-  GitSignsAddLn = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-  GitSignsChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
-  GitSignsChangeNr = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
-  GitSignsChangeLn = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
-  GitSignsDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
-  GitSignsDeleteNr = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
-  GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
-}
+-- hl.plugins.gitsigns = {
+--   GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+--   GitSignsAddNr = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+--   GitSignsAddLn = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+--   GitSignsChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+--   GitSignsChangeNr = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+--   GitSignsChangeLn = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+--   GitSignsDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+--   GitSignsDeleteNr = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+--   GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+-- }
 
 hl.plugins.telescope = {
   TelescopeNormal = { fg = colors.fg, bg = colors.bg },
@@ -455,8 +455,6 @@ end
 local highlight = {}
 
 function highlight.load()
-  -- print('DEBUG: In function load() lua/maya_ko/highlight')
-
   -- Set the theme environment
   if vim.g.colors_name then
     vim.cmd("hi clear")
