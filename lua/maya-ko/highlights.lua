@@ -37,7 +37,8 @@ hl.common = {
   DiffAdd = { bg = colors.diff_add_bg },
   DiffDelete = { fg = colors.gray, bg = colors.diff_delete_bg },
   DiffChange = { bg = colors.diff_change_bg },
-  DiffText = { bg = colors.diff_text_bg },
+  DiffText = { bg = colors.diff_text_bg, fmt = "bold" },
+  DiffTextAdd = { bg = colors.diff_text_bg },
   -- DiffAdded = { fg = colors.yellow, bg = colors.bg },
   -- DiffRemoved = { fg = colors.gold, bg = colors.bg },
   -- DiffFile = { fg = colors.gold, bg = colors.bg },
@@ -394,16 +395,27 @@ hl.plugins.cmp = {
   CmpItemKindTypeParameter = { fg = colors.yellow },
 }
 
--- hl.plugins.diff = {
---   diffAdded = { fg = colors.diff_add },
---   diffRemoved = { fg = colors.diff_remove },
---   diffChanged = { fg = colors.diff_change },
---   diffOldFile = { fg = colors.yellow },
---   diffNewFile = { fg = colors.orange_light },
---   diffFile = { fg = colors.blue },
---   diffLine = { fg = colors.gray_light },
---   diffIndexLine = { fg = colors.purple },
--- }
+hl.plugins.diff = {
+  diffAdded = { fg = colors.green },
+  diffRemoved = { fg = colors.red_dark },
+  diffChanged = { fg = colors.blue_light },
+
+  DiffviewDiffAddAsDelete = { fg = colors.cyan, bg = colors.diff_delete_bg },
+  DiffviewDiffDeleteDim = hl.common.FoldColumn,
+
+  -- DiffviewDiffAddAsDelete = { fg = colors.gold, bg = colors.diff_change_bg },
+  -- DiffviewWinSeparator = { fg = colors.bg_light },
+  -- DiffviewDiffDelete = { fg = colors.bg, bg = options.transparent and 'none' or colors.bg },
+  -- DiffviewDiffDeleteDim = hl.common.Normal,
+  -- DiffviewFilePanelSelected = { fg = colors.purple },
+
+  -- DiffviewStatusAdded = { fg = colors.gold },
+  -- DiffviewStatusUntracked = { fg = colors.gold },
+  -- DiffviewStatusModified = { fg = colors.gold },
+  -- DiffviewStatusRenamed = { fg = colors.gold },
+  -- DiffviewStatusDeleted = { fg = colors.gold },
+  -- DiffviewStatusIgnored = { fg = colors.gold },
+}
 
 -- hl.plugins.gitsigns = {
 --   GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
